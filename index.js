@@ -222,7 +222,7 @@ function sanitizeHtml(html, options, _recursing) {
       } else {
         var escaped = escapeHtml(text);
         if (options.textFilter) {
-          result += options.textFilter(escaped);
+          result += options.textFilter(escaped, stack.slice().reverse());
         } else {
           result += escaped;
         }

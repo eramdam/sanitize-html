@@ -1,3 +1,5 @@
+**fork of sanitize-html to include [`options.styleFilter`](https://github.com/punkave/sanitize-html/pull/106) and [`pass the stack to textFilter`](https://github.com/punkave/sanitize-html/pulls/95)**
+
 # sanitize-html
 
 <a href="http://apostrophenow.org/"><img src="https://raw.github.com/punkave/sanitize-html/master/logos/logo-box-madefor.png" align="right" /></a>
@@ -402,5 +404,3 @@ We're rocking our tests and have been working great in production for months, so
 Feel free to open issues on [github](http://github.com/punkave/sanitize-html).
 
 <a href="http://punkave.com/"><img src="https://raw.github.com/punkave/sanitize-html/master/logos/logo-box-builtby.png" /></a>
-
-
