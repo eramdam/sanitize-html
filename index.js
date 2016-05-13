@@ -298,7 +298,7 @@ function sanitizeHtml(html, options, _recursing) {
     // a javascript: URL to be snuck through
     href = href.replace(/<\!\-\-.*?\-\-\>/g, '');
     // Case insensitive so we don't get faked out by JAVASCRIPT #1
-    var matches = href.match(/^([a-zA-Z]+)\:/);
+    var matches = href.match(/^([a-zA-Z0-9\+]+)\:/);
     if (!matches) {
       // No scheme = no way to inject js (right?)
       return false;
