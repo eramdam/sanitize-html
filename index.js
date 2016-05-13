@@ -164,7 +164,7 @@ function sanitizeHtml(html, options, _recursing) {
               (allowedAttributesMap['*'] && allowedAttributesMap['*'].indexOf(a) !== -1 ) ||
               (has(allowedAttributesGlobMap, name) && allowedAttributesGlobMap[name].test(a)) ||
               (allowedAttributesGlobMap['*'] && allowedAttributesGlobMap['*'].test(a))) {
-            if ((a === 'href') || (a === 'src') || (a === 'cite')) {
+            if ((a === 'href') || (a === 'src') || (a === 'cite') || (a === 'usemap')) {
               if (naughtyHref(name, value)) {
                 delete frame.attribs[a];
                 return;
