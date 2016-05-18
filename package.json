@@ -1,5 +1,5 @@
 {
-  "name": "sanitize-html",
+  "name": "sanitize-html-plus",
   "version": "1.11.4-1",
   "description": "Clean up user-submitted HTML, preserving whitelisted elements and whitelisted attributes on a per-element basis",
   "main": "index.js",

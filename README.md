@@ -1,6 +1,6 @@
 **fork of sanitize-html to include [`options.styleFilter`](https://github.com/punkave/sanitize-html/pull/106) and [`pass the stack to textFilter`](https://github.com/punkave/sanitize-html/pulls/95)**
 
-# sanitize-html
+# sanitize-html "plus"
 
 <a href="http://apostrophenow.org/"><img src="https://raw.github.com/punkave/sanitize-html/master/logos/logo-box-madefor.png" align="right" /></a>
 
