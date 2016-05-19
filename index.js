@@ -108,6 +108,10 @@ function sanitizeHtml(html, options, _recursing) {
   var skipText = false;
   var skipTextDepth = 0;
 
+  if (options.customHtmlparser) {
+    htmlparser = options.customHtmlparser;
+  }
+
   var parser = new htmlparser.Parser({
     onopentag: function(name, attribs) {
       if (skipText) {
