@@ -183,7 +183,7 @@ function sanitizeHtml(html, options, _recursing) {
             }
             result += ' ' + a;
             if (value.length) {
-              result += '="' + escapeHtml(value) + '"';
+              result += '="' + escapeHtml(value, a) + '"';
             }
           } else {
             delete frame.attribs[a];
@@ -285,7 +285,10 @@ function sanitizeHtml(html, options, _recursing) {
 
   return result;
 
-  function escapeHtml(s) {
+  function escapeHtml(s, a) {
+    if (a === 'href' || a === 'src' || a === 'cite' || a === 'usemap')
+      return s;
+
     if (typeof(s) !== 'string') {
       s = s + '';
     }
