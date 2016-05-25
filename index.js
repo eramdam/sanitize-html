@@ -289,6 +289,9 @@ function sanitizeHtml(html, options, _recursing) {
     if (a === 'href' || a === 'src' || a === 'cite' || a === 'usemap')
       return s;
 
+    if (a === 'style')
+      return s.replace(/\"/g, '\'');
+
     if (typeof(s) !== 'string') {
       s = s + '';
     }
