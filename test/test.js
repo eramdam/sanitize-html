@@ -323,7 +323,7 @@ describe('sanitizeHtml', function() {
       // This is weird but not dangerous. Without the &quot there
       // would probably be some way to make it come out as a
       // separate attribute
-      '<img src="onmouseover=&quot;alert(\'XSS\');&quot;" />'
+      '<img src="onmouseover="alert(\'XSS\');"" />'
     );
   });
   it('should allow only whitelisted attributes, but to any tags, if tag is declared as  "*"', function() {
@@ -523,5 +523,13 @@ describe('sanitizeHtml', function() {
         }
       })
     , '<style>div {}</style>');
+  });
+  it('should correctly NOT escape when asked', function() {
+    assert.equal(
+      sanitizeHtml('<span> < é </span>', {
+        allowedTags: false,
+        escapeText: false
+      })
+    , '<span> < é </span>');
   });
 });

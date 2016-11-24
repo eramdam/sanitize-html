@@ -299,6 +299,10 @@ function sanitizeHtml(html, options, _recursing) {
     if (typeof(s) !== 'string') {
       s = s + '';
     }
+    
+    if (!options.escapeText)
+      return s;
+
     return s.replace(/\&/g, '&amp;').replace(/</g, '&lt;').replace(/\>/g, '&gt;').replace(/\"/g, '&quot;');
   }
 
@@ -358,7 +362,8 @@ sanitizeHtml.defaults = {
   selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta' ],
   // URL schemes we permit
   allowedSchemes: [ 'http', 'https', 'ftp', 'mailto' ],
-  allowedSchemesByTag: {}
+  allowedSchemesByTag: {},
+  escapeText: true
 };
 
 sanitizeHtml.simpleTransform = function(newTagName, newAttribs, merge) {
