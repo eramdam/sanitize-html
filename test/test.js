@@ -524,12 +524,23 @@ describe('sanitizeHtml', function() {
       })
     , '<style>div {}</style>');
   });
-  it('should correctly NOT escape when asked', function() {
+  it('should correctly NOT escape text when asked', function() {
     assert.equal(
       sanitizeHtml('<span> < é </span>', {
         allowedTags: false,
         escapeText: false
       })
     , '<span> < é </span>');
+  });
+  
+  it('should correctly NOT escape attributes when asked', function() {
+    assert.equal(
+      sanitizeHtml('<span alt="é"> < é </span>', {
+        allowedTags: false,
+        allowedAttributes: false,
+        escapeText: false,
+        escapeAttributes: false
+      })
+    , '<span alt="é"> < é </span>');
   });
 });

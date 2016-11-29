@@ -290,6 +290,9 @@ function sanitizeHtml(html, options, _recursing) {
   return result;
 
   function escapeHtml(s, a) {
+    if (!options.escapeAttributes)
+      return s;
+
     if (a === 'href' || a === 'src' || a === 'cite' || a === 'usemap')
       return s;
 
@@ -300,7 +303,10 @@ function sanitizeHtml(html, options, _recursing) {
       s = s + '';
     }
     
-    if (!options.escapeText)
+    if (!a && !options.escapeText)
+      return s;
+
+    if (a && !options.escapeAttributes)
       return s;
 
     return s.replace(/\&/g, '&amp;').replace(/</g, '&lt;').replace(/\>/g, '&gt;').replace(/\"/g, '&quot;');
@@ -363,7 +369,8 @@ sanitizeHtml.defaults = {
   // URL schemes we permit
   allowedSchemes: [ 'http', 'https', 'ftp', 'mailto' ],
   allowedSchemesByTag: {},
-  escapeText: true
+  escapeText: true,
+  escapeAttributes: true
 };
 
 sanitizeHtml.simpleTransform = function(newTagName, newAttribs, merge) {
